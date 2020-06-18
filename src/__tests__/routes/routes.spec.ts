@@ -10,11 +10,13 @@ test('healthCheck', async () => {
   expect(text).toBe(healthCheckMessage)
 })
 
-test('time', async () => {
-  const { status, body } = await request(app).get('/time')
-  expect(status).toBe(OK)
+describe('v1', () => {
+  test('time', async () => {
+    const { status, body } = await request(app).get('/v1/time')
+    expect(status).toBe(OK)
 
-  const { timestamp, timestamp_ms, time_human }: TimeResponse = body
-  expect(time_human).toBe(formatToRFC3339Nano(new Date(timestamp_ms)))
-  expect(timestamp).toBe(timestamp_ms * 1000000)
+    const { timestamp, timestamp_ms, time_human }: TimeResponse = body
+    expect(time_human).toBe(formatToRFC3339Nano(new Date(timestamp_ms)))
+    expect(timestamp).toBe(timestamp_ms * 1000000)
+  })
 })
