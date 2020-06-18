@@ -1,9 +1,16 @@
 import Express from 'express'
-import { HealthCheck, v1 } from './routes'
+import { Config } from './config'
+import { HealthCheck, v1Routes } from './routes'
+import { Application } from './types'
 
-const app = Express()
+const createApp = (config: Config): Application => {
+  const app = Express()
+  app.locals.config = config
 
-app.get('/', HealthCheck())
-app.use('/v1', v1)
+  app.get('/', HealthCheck)
+  app.use('/v1', v1Routes(config))
 
-export default app
+  return app
+}
+
+export default createApp

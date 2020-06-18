@@ -1,7 +1,7 @@
 import { RequestHandler, Response } from 'express'
 import time from '../../time'
 
-const Time = (): RequestHandler => (_, res: Response) => {
+const Time: RequestHandler = (_, res: Response) => {
   const now = time.now()
   res.json({
     timestamp: now.nano,

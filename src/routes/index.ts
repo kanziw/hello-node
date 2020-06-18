@@ -1,5 +1,5 @@
 import { RequestHandler, Response } from 'express'
-import v1 from './v1'
+import v1Routes from './v1'
 
 const healthCheckMessage = '👋 Hello there?'
 type TimeResponse = {
@@ -8,8 +8,8 @@ type TimeResponse = {
   time_human: string
 }
 
-const HealthCheck = (): RequestHandler => (_, res: Response) => {
+const HealthCheck: RequestHandler = (_, res: Response) => {
   res.send(healthCheckMessage)
 }
 
-export { healthCheckMessage, TimeResponse, HealthCheck, v1 }
+export { healthCheckMessage, TimeResponse, HealthCheck, v1Routes }
