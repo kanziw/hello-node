@@ -28,7 +28,7 @@
   "dependencies": {
     "@godaddy/terminus": "^4.4.1",
     "axios": "^0.19.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-status-codes": "^1.4.0"
   },
   "devDependencies": {
